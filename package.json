@@ -1,0 +1,22 @@
+{
+  "name": "techsperience-project",
+  "version": "1.0.0",
+  "description": "Prototype Project for Techsperience",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dorronzherka/techsperience-project.git"
+  },
+  "author": "Dorron Zherka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dorronzherka/techsperience-project/issues"
+  },
+  "homepage": "https://github.com/dorronzherka/techsperience-project#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
