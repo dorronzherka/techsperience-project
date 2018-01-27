@@ -19,6 +19,13 @@ body {
 
 }
 
+.navbar .navbar-brand:hover{
+	font-family: "Amatic SC" , cursive;
+	color: #15A585;
+	font-size: 28px;
+
+}
+
 .navbar  #add  {
 	padding: 10px;
 	border: none;
@@ -52,19 +59,24 @@ body {
 }
 
 /*** Modal ***/
-#addModal .modal-header{
+#addModal .modal-header , #messageModal .modal-header{
 	background-color: #173E43;
 	color :#15A585;
 	border-radius: 2px; 
 }
 
-#addModal .modal-footer{
+#addModal .modal-footer , #messageModal .modal-footer{
 	background-color:#15A585;
 	color : #173E43;
 	border-radius: 2px; 
 }
-
-#addModal .model-content{
+#addModal .modal-footer button , #messageModal .modal-footer button{
+	background-color: #173E43;
+	border: none;
+	padding: 10px;
+	color: #15A585;
+}
+#addModal .model-content ,#messageModal .model-content{
 	background-color: #F5F5F5;
 }
 

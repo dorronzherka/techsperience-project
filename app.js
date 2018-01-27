@@ -1,14 +1,26 @@
 // ------ Requiring packages ------
 const express = require('express');
 const mongoose  = require('mongoose');
+const multer = require('multer');
+
 
 // ------ Requiring Document Model( Schema ) ------
 const Document = require('./models/Document.js');
 
+// ------ Setting storage enginge ------
+var storage = multer.diskStorage({
+	destination : (req , file ,cb ) =>{
+		cb(null,'images/');
+	},
+	filename : (req,file,cb) =>{
+		cb(null,file.originalname);
+	}
+})
 
-// ------ init app------
+// ------ init packages------
 
 const app = express();
+const upload =  multer({storage :storage});
 
 
 
@@ -65,14 +77,17 @@ app.get('/', function(req, res) {
 
 
 // ------ Create Document ------
-app.post('/documents',(req,res) => {
+app.post('/documents', upload.array('image') ,(req,res) => {
 	//Code for handling creation  of document in MongoDB
 	var doc = new Document();
 	doc.document_number = req.body.document_number;
 	doc.document_title = req.body.document_title;
 	doc.document_description = req.body.document_description;
 	doc.document_physicalLocation = req.body.document_physicalLocation;
-	doc.document_scannedImages = req.body.document_scannedImages;
+	doc.document_author = req.body.document_author;
+	var files = [];
+	req.files.map(file => files.push(file.originalname));
+	doc.document_scannedImages =  files;
 
 	Document.create(doc,(err,doc) => {
 		if(err)
@@ -138,6 +153,13 @@ app.delete('/documents/delete/:id', (req,res) => {
 	})
 });
 
+// ----- Upload a image ----
+app.post('/upload',upload.array('image'),(req,res) => {
+	req.files.map(file =>{
+		console.log(file.originalname);
+	})
+	res.json({msg : "uploaded"});
+});
 
 // ------ Starting Application ------
 app.listen(3000, function() {
