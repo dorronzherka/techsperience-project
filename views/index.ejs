@@ -1,5 +1,56 @@
 <% include partials/header.ejs %>
 <!-- ============== Body ============== -->
-	<h1>Home page</h1>
+	<div class="container">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Title</th>
+					<th>Location</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>Lorem ipsum dolor </td>
+					<td>A/15</td>
+					<td><a href="#" id="open"><i class="fas fa-search"></i></a><a href="#" id='edit'><i class="fas fa-pencil-alt"></i></a><a href="#" id="remove"><i class="fas fa-trash-alt"></i></a></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<!-- Modal -->
+		<div class="modal fade" id="addModal" tabindex="-1" role="dialog" >
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h3 class="modal-title">Add Document</h3>
+					</div>
+					<div class="modal-body">
+						<div class="myFormGroup">
+							<input  type="text" name="documentNr" id="documentNr" placeholder="Document #">
+						</div>
+						<div class="myFormGroup">
+							<input  type="text" name="title" id="title" placeholder="Title">
+						</div>
+						<div class="myFormGroup">
+							<input  type="text" name="physicalLocation" id="physicalLocation" placeholder="Physical Location">
+						</div>
+						<div class="myFormGroup">
+							<textarea  name="title" id="title" placeholder="Description"></textarea>
+						</div>
+						<div class="myFormGroup">
+							<input type="file" name="file" id="file" multiple>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button id="submit" data-dismiss="#addModal">Save</button>
+						<button id='close' data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 <!-- ============== /Body ============== -->
 <% include partials/footer.ejs %>

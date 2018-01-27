@@ -1,3 +1,131 @@
-body{
-	background-color: #333;
+/** fonts **/
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+body {
+	background-color: #F5F5F5;
+	font-family: 'Quicksand' , sans-serif;
+}
+/*** Navbar ***/
+.navbar{
+	background-color: #173E43;
+	border: none;
+	border-radius: 0;
+}
+
+.navbar .navbar-brand{
+	font-family: "Amatic SC" , cursive;
+	color: #15A585;
+	font-size: 28px;
+
+}
+
+.navbar  #add  {
+	padding: 10px;
+	border: none;
+	background-color : #15A585;
+	color:  #173E43;
+}
+
+.navbar #add:hover{
+	background-color : #173E43;
+	color:   #15A585;
+}
+
+/*** Body ***/
+
+/*** Table ***/
+.table thead tr th {
+	color: #0B5C4A;
+}
+
+.table tbody tr td {
+	color : #15A585;
+}
+
+.table tbody tr td  a{
+	color : #15A585;
+	margin-left: 5px;
+}
+
+.table tbody tr td  a:hover{
+	color : #0B5C4A;
+}
+
+/*** Modal ***/
+#addModal .modal-header{
+	background-color: #173E43;
+	color :#15A585;
+	border-radius: 2px; 
+}
+
+#addModal .modal-footer{
+	background-color:#15A585;
+	color : #173E43;
+	border-radius: 2px; 
+}
+
+#addModal .model-content{
+	background-color: #F5F5F5;
+}
+
+#addModal .modal-content  .myFormGroup{
+	margin-bottom: 10px;
+}
+
+#addModal .modal-content  .myFormGroup input{
+	border: none;
+	border-bottom: 3px solid  #173E43;
+	border-radius: 3px;
+	width: 100%;
+	font-size: 15px;
+}
+#addModal .modal-content  .myFormGroup input::placeholder{
+	color: #15A585;
+	font-size: 15px;
+}
+
+#addModal .modal-content  .myFormGroup input:focus{
+	border-color:#15A585;
+
+}
+
+#addModal .modal-content  .myFormGroup input:focus::placeholder{
+	color: #173E43;
+	border-color:#173E43;
+}
+
+#addModal .modal-content  .myFormGroup textarea{
+	border: none;
+	border-bottom: 3px solid  #173E43;
+	border-radius: 3px;
+	width: 100%;
+	font-size: 15px;
+	height: 230px;
+}
+
+
+#addModal .modal-content  .myFormGroup textarea::placeholder{
+	color: #15A585;
+	font-size: 15px;
+}
+
+#addModal .modal-content  .myFormGroup textarea:focus{
+	border-color:#15A585;
+
+}
+
+#addModal .modal-content  .myFormGroup textarea:focus::placeholder{
+	color: #173E43;
+	border-color:#173E43;
+}
+
+#addModal .modal-content .myFormGroup #uploadArea{
+	border: 2px dashed #173E43;
+	padding: 50px;
+	text-align: center;
+}
+
+
+#addModal .modal-content .myFormGroup #uploadArea.onDrag{
+	border-color: #15A585;
 }
