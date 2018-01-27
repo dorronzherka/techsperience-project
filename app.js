@@ -10,7 +10,7 @@ const Document = require('./models/Document.js');
 // ------ Setting storage enginge ------
 var storage = multer.diskStorage({
 	destination : (req , file ,cb ) =>{
-		cb(null,'images/');
+		cb(null,'public/images');
 	},
 	filename : (req,file,cb) =>{
 		cb(null,file.originalname);
@@ -116,6 +116,14 @@ app.get('/documents/:id',(req,res) => {
 	});
 });
 
+//Get documents  with a starting point and limit;
+app.get('/documents/:skip/:limit',(req,res) => {
+	var query = Document.find({}).skip(parseInt(req.params.skip)).limit(parseInt(req.params.limit));
+	query.exec((err,docs) => {
+		res.json(docs);
+	});
+});
+
 // ------ Update Document ------
 app.put('/documents/update/:id',(req ,res) => {
 	//Code for handling  to update document
@@ -153,13 +161,14 @@ app.delete('/documents/delete/:id', (req,res) => {
 	})
 });
 
-// ----- Upload a image ----
-app.post('/upload',upload.array('image'),(req,res) => {
-	req.files.map(file =>{
-		console.log(file.originalname);
+// ------  Get length of documetns ------
+app.get('/countDocumentSize/',(req,res) => {
+	Document.count((err,count) => {
+		if(err)
+			console.log(err);
+		res.json(count);
 	})
-	res.json({msg : "uploaded"});
-});
+})
 
 // ------ Starting Application ------
 app.listen(3000, function() {

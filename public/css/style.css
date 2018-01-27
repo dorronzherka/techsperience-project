@@ -4,6 +4,8 @@
 body {
 	background-color: #F5F5F5;
 	font-family: 'Quicksand' , sans-serif;
+	margin:0;
+	padding: 0;
 }
 /*** Navbar ***/
 .navbar{
@@ -59,24 +61,24 @@ body {
 }
 
 /*** Modal ***/
-#addModal .modal-header , #messageModal .modal-header{
+#addModal .modal-header , #messageModal .modal-header , #DocumentModal .modal-header{
 	background-color: #173E43;
 	color :#15A585;
 	border-radius: 2px; 
 }
 
-#addModal .modal-footer , #messageModal .modal-footer{
+#addModal .modal-footer , #messageModal .modal-footer , #DocumentModal .modal-footer{ 
 	background-color:#15A585;
 	color : #173E43;
 	border-radius: 2px; 
 }
-#addModal .modal-footer button , #messageModal .modal-footer button{
+#addModal .modal-footer button , #messageModal .modal-footer button ,#DocumentModal .modal-footer button{
 	background-color: #173E43;
 	border: none;
 	padding: 10px;
 	color: #15A585;
 }
-#addModal .model-content ,#messageModal .model-content{
+#addModal .model-content ,#messageModal .model-content , #DocumentModal .model-content{
 	background-color: #F5F5F5;
 }
 
@@ -140,4 +142,27 @@ body {
 
 #addModal .modal-content .myFormGroup #uploadArea.onDrag{
 	border-color: #15A585;
+}
+
+.hide {
+	display: hidden;
+}
+
+#more {
+	background-color: transparent;
+	border: none;
+	color:#15A585;
+	visibility: hidden;
+}
+
+#more:hover{
+	color: #173E43;
+}
+.label{
+	color : #15A585;
+	font-size: 15px;
+}
+
+.authorData .data{
+	font-size:  18px;
 }
