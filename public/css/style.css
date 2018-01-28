@@ -61,54 +61,54 @@ body {
 }
 
 /*** Modal ***/
-#addModal .modal-header , #messageModal .modal-header , #DocumentModal .modal-header{
+#addModal .modal-header , #messageModal .modal-header , #DocumentModal .modal-header , #confirmationModal .modal-header , #editModal .modal-header{
 	background-color: #173E43;
 	color :#15A585;
 	border-radius: 2px; 
 }
 
-#addModal .modal-footer , #messageModal .modal-footer , #DocumentModal .modal-footer{ 
+#addModal .modal-footer , #messageModal .modal-footer , #DocumentModal .modal-footer , #confirmationModal .modal-footer , #editModal .modal-footer{ 
 	background-color:#15A585;
 	color : #173E43;
 	border-radius: 2px; 
 }
-#addModal .modal-footer button , #messageModal .modal-footer button ,#DocumentModal .modal-footer button{
+#addModal .modal-footer button , #messageModal .modal-footer button ,#DocumentModal .modal-footer button , #confirmationModal .modal-footer button, #editModal .modal-footer button{
 	background-color: #173E43;
 	border: none;
 	padding: 10px;
 	color: #15A585;
 }
-#addModal .model-content ,#messageModal .model-content , #DocumentModal .model-content{
+#addModal .model-content ,#messageModal .model-content , #DocumentModal .modal-content , #confirmationModal .modal-content{
 	background-color: #F5F5F5;
 }
 
-#addModal .modal-content  .myFormGroup{
+#addModal .modal-content  .myFormGroup , #editModal .modal-content  .myFormGroup{
 	margin-bottom: 10px;
 }
 
-#addModal .modal-content  .myFormGroup input{
+#addModal .modal-content  .myFormGroup input  , #editModal .modal-content  .myFormGroup input{
 	border: none;
 	border-bottom: 3px solid  #173E43;
 	border-radius: 3px;
 	width: 100%;
 	font-size: 15px;
 }
-#addModal .modal-content  .myFormGroup input::placeholder{
+#addModal .modal-content  .myFormGroup input::placeholder , #editModal .modal-content  .myFormGroup input::placeholder{
 	color: #15A585;
 	font-size: 15px;
 }
 
-#addModal .modal-content  .myFormGroup input:focus{
+#addModal .modal-content  .myFormGroup input:focus  , #editModal .modal-content  .myFormGroup input:focus{
 	border-color:#15A585;
 
 }
 
-#addModal .modal-content  .myFormGroup input:focus::placeholder{
+#addModal .modal-content  .myFormGroup input:focus::placeholder ,  , #editModal .modal-content  .myFormGroup input:focus::placeholder{
 	color: #173E43;
 	border-color:#173E43;
 }
 
-#addModal .modal-content  .myFormGroup textarea{
+#addModal .modal-content  .myFormGroup textarea  , #editModal .modal-content  .myFormGroup textarea{
 	border: none;
 	border-bottom: 3px solid  #173E43;
 	border-radius: 3px;
@@ -118,46 +118,27 @@ body {
 }
 
 
-#addModal .modal-content  .myFormGroup textarea::placeholder{
+#addModal .modal-content  .myFormGroup textarea::placeholder  , #editModal .modal-content  .myFormGroup textarea::placeholder{
 	color: #15A585;
 	font-size: 15px;
 }
 
-#addModal .modal-content  .myFormGroup textarea:focus{
+#addModal .modal-content  .myFormGroup textarea:focus, , #editModal .modal-content  .myFormGroup textarea:focus{
 	border-color:#15A585;
 
 }
 
-#addModal .modal-content  .myFormGroup textarea:focus::placeholder{
+#addModal .modal-content  .myFormGroup textarea:focus::placeholder , #editModal .modal-content  .myFormGroup textarea:focus::placeholder {
 	color: #173E43;
 	border-color:#173E43;
 }
 
-#addModal .modal-content .myFormGroup #uploadArea{
-	border: 2px dashed #173E43;
-	padding: 50px;
-	text-align: center;
-}
-
-
-#addModal .modal-content .myFormGroup #uploadArea.onDrag{
-	border-color: #15A585;
-}
 
 .hide {
 	display: hidden;
 }
 
-#more {
-	background-color: transparent;
-	border: none;
-	color:#15A585;
-	visibility: hidden;
-}
 
-#more:hover{
-	color: #173E43;
-}
 .label{
 	color : #15A585;
 	font-size: 15px;
@@ -165,4 +146,16 @@ body {
 
 .authorData .data{
 	font-size:  18px;
+}
+
+.images  a .img-thumbnail{
+	width: 140px;
+	height: 140px;
+	margin-left: 10px;
+}
+
+#confirmationModal .model-header{
+	background-color: #173E43;
+	color :#15A585;
+	border-radius: 2px; 
 }

@@ -2,6 +2,7 @@
 const express = require('express');
 const mongoose  = require('mongoose');
 const multer = require('multer');
+const fs = require('fs');
 
 
 // ------ Requiring Document Model( Schema ) ------
@@ -75,7 +76,7 @@ app.get('/', function(req, res) {
 
 });
 
-
+// Kjo osht per insert
 // ------ Create Document ------
 app.post('/documents', upload.array('image') ,(req,res) => {
 	//Code for handling creation  of document in MongoDB
@@ -126,15 +127,14 @@ app.get('/documents/:skip/:limit',(req,res) => {
 
 // ------ Update Document ------
 app.put('/documents/update/:id',(req ,res) => {
-	//Code for handling  to update document
-	var updatedDocument = {
-		document_number : req.body.document_number,
-		document_title : req.body.document_title,
-		document_description : req.body.document_description,
-		document_physicalLocation : req.body.document_physicalLocation,
-		document_scannedImages  : req.body.document_scannedImages
-	}
-
+	//Code for handling  to update document	console.log()
+		 var updatedDocument = {
+			"document_number" : req.body.document_number,
+			"document_title" : req.body.document_title,
+			"document_description" : req.body.document_description,
+			"document_physicalLocation" : req.body.document_physicalLocation,
+			"document_author" : req.body.document_author
+		}
 	Document.findOneAndUpdate(
 		{ 
 			_id : req.params.id
@@ -155,20 +155,47 @@ app.put('/documents/update/:id',(req ,res) => {
 app.delete('/documents/delete/:id', (req,res) => {
 	//Code for handling to remove a document
 	Document.remove({ _id : req.params.id},(err , result) =>{
-		if(err)
+		if(err){
 			console.log(err);
+		}
 		res.json({ message : "Document has been deleted!"});
-	})
+	});
 });
 
 // ------  Get length of documetns ------
 app.get('/countDocumentSize/',(req,res) => {
 	Document.count((err,count) => {
-		if(err)
+		if(err){
 			console.log(err);
+		}
+		
 		res.json(count);
 	})
 })
+
+// ------ Get a Document By id and delete images ------
+app.get('/deleteImages/:id',(req,res) => {
+	//Code for handling  to get  document by id
+	Document.findById(req.params.id,(err , doc) => {
+		if(err){
+			console.log(err);
+		}
+        var images = doc.document_scannedImages;
+        var imgLenght = images.length;
+       	images.forEach(image => {
+       		fs.unlink(__dirname+"/public/images/"+image, function(error) {
+       			imgLenght--;
+       		    if (error) {
+       		        console.log(error);
+       		        return;
+       		    }else if (imgLenght <= 0){
+       		    	console.log('All images are deleted');
+       		    }
+       		});
+       	})
+		res.json({msg : "deleted"});
+	});
+});
 
 // ------ Starting Application ------
 app.listen(3000, function() {
